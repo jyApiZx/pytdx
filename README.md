@@ -1,5 +1,11 @@
 # pytdx
 
+# 通达信/同花顺纯协议接口
+
+**提供通达信/同花顺纯协议接口，支持大部分券商。接入请联系 Telegram：`JyApi888`。**
+
+完整函数表和各语言示例见 [stockapi](https://github.com/jyApiZx/stockapi)。
+
 按 pytdx 的 `TdxHq_API` / `TdxExHq_API` 调用方式使用。行情、十档和逐笔都从 `Api.dll` 取出，不再连接公开的 7709 行情服务器。
 
 量化脚本里原来写 `pytdx` 的地方可以保留。换上 `Api.dll` 之后，同一套代码还能接券商交易。
@@ -15,7 +21,7 @@
 | L2 | 十档、逐笔成交、逐笔委托 |
 | 扩展行情 | `TdxExHq_*`，期货、期权等 |
 
-DLL、完整函数表和各语言示例见 [stockapi](https://github.com/jyApiZx/stockapi)。接入与授权请联系 Telegram：`JyApi888`。
+DLL 与函数说明见 [stockapi](https://github.com/jyApiZx/stockapi)。
 
 进程位数须与 `Api.dll` 一致。`Result`、`ErrInfo` 为 GBK 文本。
 
