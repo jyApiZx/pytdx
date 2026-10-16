@@ -55,24 +55,6 @@ Out[8]: 64.0
 
 class TdxExHq_API(BaseSocketClient):
 
-    def connect(self, ip='YOUR_HQ_HOST', port=7727, time_out=5, bindport=None, bindip='0.0.0.0', account='YOUR_ACCOUNT', password='YOUR_PASSWORD'):
-        from pytdx.dll_backend import ExHqDll
-        self.ip = ip
-        self.port = port
-        self._account = account
-        self._password = password
-        self._ex = ExHqDll()
-        cid = self._ex.connect(ip, port, account, password)
-        if cid < 0:
-            log.debug(getattr(self._ex, "last_error", ""))
-            return False
-        return self
-
-    def disconnect(self):
-        if getattr(self, "_ex", None) is not None:
-            self._ex.disconnect()
-            self._ex = None
-
     def setup(self):
         ExSetupCmd1(self.client).call_api()
 

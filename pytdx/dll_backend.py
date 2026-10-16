@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Api.dll backend. Public TdxHq_* / TdxExHq_* only."""
+"""HqApi.dll backend. Public TdxHq_* only."""
 
 import os
 from ctypes import (
@@ -14,7 +14,7 @@ def load_dll(path=None):
     global _DLL
     if _DLL is not None:
         return _DLL
-    path = path or os.environ.get("STOCKAPI_DLL", "Api.dll")
+    path = path or os.environ.get("HQAPI_DLL", "HqApi.dll")
     _DLL = WinDLL(path)
     return _DLL
 

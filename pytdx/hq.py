@@ -49,16 +49,16 @@ if __name__ == '__main__':
 
 class TdxHq_API(BaseSocketClient):
 
-    def connect(self, ip='YOUR_HQ_HOST', port=7709, time_out=5, bindport=None, bindip='0.0.0.0', account='YOUR_ACCOUNT', password='YOUR_PASSWORD'):
+    def connect_hqapi(self, ip, port=7709, account="L1*YOUR_ACCOUNT", password="YOUR_PASSWORD"):
+        """用 HqApi.dll 取行情。默认的 connect 仍走原来的 7709 协议。"""
         from pytdx.dll_backend import HqDll
         self.ip = ip
         self.port = port
-        self._account = account
-        self._password = password
         self._hq = HqDll()
         cid = self._hq.connect(ip, port, account, password)
         if cid < 0:
             log.debug(getattr(self._hq, "last_error", ""))
+            self._hq = None
             return False
         return self
 
@@ -66,6 +66,7 @@ class TdxHq_API(BaseSocketClient):
         if getattr(self, "_hq", None) is not None:
             self._hq.disconnect()
             self._hq = None
+        return super(TdxHq_API, self).disconnect()
 
     def setup(self):
         SetupCmd1(self.client).call_api()
