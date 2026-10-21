@@ -1,8 +1,8 @@
 # pytdx
 
-# 通达信/同花顺纯协议接口
+# 同花顺交易接口
 
-**同花顺/通达信纯协议交易接口，L1、L2 行情接口。直连券商，无需启动客户端，支持大部分券商。产品介绍见 [thsapi.com](https://thsapi.com/)。技术支持请联系 [Telegram：@Thsapi](https://t.me/Thsapi)**
+**同花顺交易接口，L1、L2 行情接口。直连券商，无需启动客户端，支持大部分券商。产品介绍见 [thsapi.com](https://thsapi.com/)。技术支持请联系 [Telegram：@Thsapi](https://t.me/Thsapi)**
 
 不点屏幕，不抢鼠标，程序直接连券商。下载后用模拟盘就能测查询、下单和撤单。已经有项目时，打开 [AI 代做提示词](https://thsapi.com/ai.html)，把提示词交给正在改项目的 AI。行情有 L1，也有十档、买卖队列和逐笔。
 
@@ -12,7 +12,7 @@
 
 老的 `TdxHqApi` 已经没人维护。需要心跳、断线重连，以及后来补上的函数时，改用 `connect_hqapi`，加载 [HqApi.dll](https://github.com/jyApiZx/stockapi)。L1 是实时行情、Tick、买卖五档，以及一分钟、五分钟 K 线。L2 是十档、买卖队列和逐笔，端口 7719，账号不要加前缀。使用 L2 数据，需要先具有 L2 账户：[通达信L2普及版](https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_pj_cf?param=%7B%22categoryId%22%3A%224%22%7D)。连接断了由 DLL 自己重连。
 
-行情包：[64 位](https://github.com/jyApiZx/stockapi/releases/download/hqapi-1.0.3/hqapi_1.0.3_x64.zip)、[32 位](https://github.com/jyApiZx/stockapi/releases/download/hqapi-1.0.3/hqapi_1.0.3_x32.zip)。交易不放在行情类里，要用纯协议下单时看 `pytdx.ths_trade`，DLL 是 `thsapi.dll`。客户端方式下单慢，也容易漏单、错单，纯协议是直接连券商。交易包：[64 位](https://github.com/jyApiZx/stockapi/releases/download/v1.0.3/thsapi_1.0.3_x64.zip)、[32 位](https://github.com/jyApiZx/stockapi/releases/download/v1.0.3/thsapi_1.0.3_x32.zip)。
+行情包：[64 位](https://github.com/jyApiZx/stockapi/releases/download/hqapi-1.0.3/hqapi_1.0.3_x64.zip)、[32 位](https://github.com/jyApiZx/stockapi/releases/download/hqapi-1.0.3/hqapi_1.0.3_x32.zip)。交易不放在行情类里，要用同花顺交易接口下单时看 `pytdx.ths_trade`，DLL 是 `thsapi.dll`。客户端方式下单慢，也容易漏单、错单，同花顺交易接口是直接连券商。交易包：[64 位](https://github.com/jyApiZx/stockapi/releases/download/v1.0.5/thsapi_1.0.5_x64.zip)、[32 位](https://github.com/jyApiZx/stockapi/releases/download/v1.0.5/thsapi_1.0.5_x32.zip)。
 
 ## 原来的行情
 
